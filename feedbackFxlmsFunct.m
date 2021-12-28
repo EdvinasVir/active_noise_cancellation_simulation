@@ -9,8 +9,8 @@ w = zeros(1, numTaps);
 fx = zeros(1, numTaps);
 
     for n = 1 : numIter
-       yFb = sum(wFb_sim' .* y); %sistepSizelate acoustic feedback
-       xFb = input(n) + yFb; %sistepSizelate acoustic feedback
+       yFb = sum(wFb_sim' .* y); %calculate acoustic feedback
+       xFb = input(n) + yFb; %add acoustic feedback
        yFbh = sum(wFb .* y);  %filter output using identified feedback path coeffs
        xh = xFb - yFbh; %subtract filtered output from the input
        x = [xh x(1 : numTaps - 1)];  %reference signal delay line
